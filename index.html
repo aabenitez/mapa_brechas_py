@@ -227,9 +227,9 @@ L.control.layers(
 ).addTo(mapa);
 L.control.scale({ imperial: false }).addTo(mapa);
 
-// enlaces directos: mapa_tramos.html#capas=ilum,nse activa las capas opcionales
+// la iluminación nocturna arranca activa; mapa_tramos.html#capas=nse activa también el nivel socioeconómico
+iluminacion.addTo(mapa);
 const pedidas = (location.hash.match(/capas=([\w,]+)/) || [, ""])[1].split(",");
-if (pedidas.includes("ilum")) iluminacion.addTo(mapa);
 if (pedidas.includes("nse")) nse.addTo(mapa);
 
 const tb = document.querySelector("#tabla tbody");
