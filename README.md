@@ -51,15 +51,18 @@ Se revisaron los tramos dudosos, los aproximados, los que no tenían km oficial 
 - Cartera de Proyectos del MOPC, publicada en informacionpublica.paraguay.gov.py.
 - Patrulla Caminera, Agencia IP, ABC Color, Última Hora y La Nación.
 - Llamado BID LPI 29/2018 (PR-L1092).
+- Mapas MOPC de San Pedro y Canindeyú: Inventario Vial (corte dic-2025) y Obras en Ejecución 2026. Se georreferenciaron con las localidades y se superpusieron los tramos.
 
 Resultados:
 
 - **Nueva Germania – Cruce 65 y Cruce 65 – Tacuatí:** Cruce 65 queda sobre el camino Nueva Germania – Tacuatí (PY11), a unos 14,6 km de Tacuatí. El primer tramo pasa de dudoso a aproximado (48,7 km frente a 40 km).
 - **La Paloma – Santa Clara:** los 8,92 km arrancan en el camino a Puerto Adela (D086), no en el casco urbano.
-- **San Vicente – Itanará:** los 20,46 km del lote BID (Ecomipa, inaugurado en febrero de 2023) van por la D005 desde San Vicente Pancholo hacia Villa Ygatimí, no hasta Itanará. Lo indican la red del INE, que tiene asfaltada la D005 en ese tramo, la imagen satelital y la nota de inauguración, que ubica un puente del lote en el tramo San Vicente – Villa Ygatimí. Se dibuja hasta donde termina el asfalto. El punto final oficial no se publicó.
+- **San Vicente – Itanará:** los 20,46 km del lote BID (Ecomipa, inaugurado en febrero de 2023) van por la D005 desde San Vicente Pancholo hacia Villa Ygatimí, no hasta Itanará. Lo indican la red del INE, que tiene asfaltada la D005 en ese tramo, la imagen satelital y la nota de inauguración, que ubica un puente del lote en el tramo San Vicente – Villa Ygatimí. Se dibuja hasta donde termina el asfalto. El punto final oficial no se publicó. El «Itanará» del nombre sería la localidad Arroyo Itamará, sobre la D005 (Inventario MOPC 2025); desde Villa Ygatimí hay otro lote en ejecución en 2026 hacia Arroyo Itanará (20,84 km).
 - **Con km oficiales nuevos:** Yuty – 3 de Mayo (26 km), Gral. Morínigo – Caazapá (37,93 km) y Cruce Kimex – Carlos Antonio López (57,22 km, en ejecución con BID).
 - **Ubicados por primera vez:** Guajayví – Río Curuguaty'i (32 km), Nueva Esperanza – Santa Lucía (39,51 km) y Cruce Alpa – Lima (15,93 km, en ejecución, en Caazapá y no en Caaguazú).
-- **Siguen sin ubicar:** Colonias Unidas, Retiro Alegre, PR-L1196 y CAF fase 3. Tampoco se halló Quiindy (San Pedro).
+- **Lima – Quiindy:** Quiindy se ubicó con el Inventario MOPC 2025, unos 4 km antes de Naranjito. Lima – Quiindy da 24,6 km (oficial 24,10) y coincide.
+- **Nueva Esperanza – Santa Lucía:** Santa Lucía es una localidad de Itakyry (Alto Paraná). El tramo va por Laurel y la D087 (34,3 km frente a 39,51 km); antes estaba dibujado por error hacia Ybyrarovana.
+- **Siguen sin ubicar:** Colonias Unidas, Retiro Alegre, PR-L1196 y CAF fase 3.
 - **Choré – Kokuere – San Pablo:** 37,7 km según el MOPC; el trazado da 37,2 km y coincide.
 - **Caazapá – Tajy – Colonia Cosme – Vizcaíno Kue:** se trazó con los puntos de Google Maps (25,1 km; el trazado da 26,5 km). En el Mapa Vial MOPC 2026 de Caazapá figura como camino vecinal. La ley 7527/2025 lo extiende hasta Fulgencio Yegros, pero ese tramo no se dibuja porque la red del INE no tiene un camino directo.
 
