@@ -51,7 +51,7 @@ Se revisaron los tramos dudosos, los aproximados, los que no tenían km oficial 
 - Cartera de Proyectos del MOPC, publicada en informacionpublica.paraguay.gov.py.
 - Patrulla Caminera, Agencia IP, ABC Color, Última Hora y La Nación.
 - Llamado BID LPI 29/2018 (PR-L1092).
-- Mapas MOPC de San Pedro y Canindeyú: Inventario Vial (corte dic-2025) y Obras en Ejecución 2026. Se georreferenciaron con las localidades y se superpusieron los tramos.
+- Mapas MOPC de San Pedro, Canindeyú y Caazapá: Inventario Vial (corte dic-2025) y Obras en Ejecución 2026. Se georreferenciaron con las localidades y se superpusieron los tramos.
 
 Resultados:
 
@@ -62,6 +62,9 @@ Resultados:
 - **Ubicados por primera vez:** Guajayví – Río Curuguaty'i (32 km), Nueva Esperanza – Santa Lucía (39,51 km) y Cruce Alpa – Lima (15,93 km, en ejecución, en Caazapá y no en Caaguazú).
 - **Lima – Quiindy:** Quiindy se ubicó con el Inventario MOPC 2025, unos 4 km antes de Naranjito. Lima – Quiindy da 25,0 km (oficial 24,10) y coincide.
 - **Nueva Esperanza – Santa Lucía:** Santa Lucía es una localidad de Itakyry (Alto Paraná). El tramo va por Laurel y la D087 (34,4 km frente a 39,51 km); antes estaba dibujado por error hacia Ybyrarovana.
+- **Gral. Morínigo – Caazapá:** se redibujó como en el mapa MOPC de obras 2026: desde la PY18, unos 7 km al sureste del casco de Morínigo, hasta Caazapá (38,9 km frente a 37,93 km).
+- **Cruce Alpa – Lima:** según el mismo mapa, Cruce Alpa está en el límite con Itapúa y la obra sigue la D046 por Col. Lima; se dibuja hasta completar los 15,93 km oficiales.
+- **Abaí – Gral. Morínigo:** obra en ejecución que figura en el mapa MOPC (14,9 km, Edivi). Se agregó al mapa con la ruta más corta del INE (16,5 km).
 - **Siguen sin ubicar:** Colonias Unidas, Retiro Alegre, PR-L1196 y CAF fase 3.
 - **Choré – Kokuere – San Pablo:** 37,7 km según el MOPC; el trazado da 37,2 km y coincide.
 - **Caazapá – Tajy – Colonia Cosme – Vizcaíno Kue:** se trazó con los puntos de Google Maps (25,1 km; el trazado da 26,5 km). En el Mapa Vial MOPC 2026 de Caazapá figura como camino vecinal. La ley 7527/2025 lo extiende hasta Fulgencio Yegros, pero ese tramo no se dibuja porque la red del INE no tiene un camino directo.
