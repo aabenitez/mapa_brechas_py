@@ -59,7 +59,8 @@ Resultados:
 - **San Vicente – Itanará:** el lote BID cubre 20,46 km, pero no se publicó qué parte del camino. Sigue como dudoso.
 - **Con km oficiales nuevos:** Yuty – 3 de Mayo (26 km), Gral. Morínigo – Caazapá (37,93 km) y Cruce Kimex – Carlos Antonio López (57,22 km, en ejecución con BID).
 - **Ubicados por primera vez:** Guajayví – Río Curuguaty'i (32 km), Nueva Esperanza – Santa Lucía (39,51 km) y Cruce Alpa – Lima (15,93 km, en ejecución, en Caazapá y no en Caaguazú).
-- **Siguen sin ubicar:** Colonias Unidas, Retiro Alegre, PR-L1196 y CAF fase 3. Tampoco se halló Quiindy (San Pedro) ni los km de Choré – Kokuere – San Pablo.
+- **Siguen sin ubicar:** Colonias Unidas, Retiro Alegre, PR-L1196 y CAF fase 3. Tampoco se halló Quiindy (San Pedro).
+- **Choré – Kokuere – San Pablo:** 37,7 km según el MOPC; el trazado da 37,2 km y coincide.
 
 ## Regenerar
 
