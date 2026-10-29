@@ -41,6 +41,26 @@ Según esta capa, Paraguay tiene unos 141.000 km de caminos rurales de tierra.
 
 En los tramos que empiezan en una ruta («Ruta 10 – …»), el punto de inicio se ajustó para igualar los km oficiales.
 
+Cuando un extremo no figura en el INE (Cruce 65, el río Curuguaty'i), se ubicó sobre la red con los km oficiales. En esos tramos la calidad dice «extremo ubicado con los km oficiales», porque el largo ya no sirve para validar el trazado.
+
+## Verificación de tramos (octubre 2026)
+
+Se revisaron los tramos dudosos, los aproximados, los que no tenían km oficial y los que no estaban ubicados. Fuentes:
+
+- MOPC: Balance Anual de Gestión Pública 2021 y notas de prensa en mopc.gov.py.
+- Cartera de Proyectos del MOPC, publicada en informacionpublica.paraguay.gov.py.
+- Patrulla Caminera, Agencia IP, ABC Color, Última Hora y La Nación.
+- Llamado BID LPI 29/2018 (PR-L1092).
+
+Resultados:
+
+- **Nueva Germania – Cruce 65 y Cruce 65 – Tacuatí:** Cruce 65 queda sobre el camino Nueva Germania – Tacuatí (PY11), a unos 14,6 km de Tacuatí. El primer tramo pasa de dudoso a aproximado (48,7 km frente a 40 km).
+- **La Paloma – Santa Clara:** los 8,92 km arrancan en el camino a Puerto Adela (D086), no en el casco urbano.
+- **San Vicente – Itanará:** el lote BID cubre 20,46 km, pero no se publicó qué parte del camino. Sigue como dudoso.
+- **Con km oficiales nuevos:** Yuty – 3 de Mayo (26 km), Gral. Morínigo – Caazapá (37,93 km) y Cruce Kimex – Carlos Antonio López (57,22 km, en ejecución con BID).
+- **Ubicados por primera vez:** Guajayví – Río Curuguaty'i (32 km), Nueva Esperanza – Santa Lucía (39,51 km) y Cruce Alpa – Lima (15,93 km, en ejecución, en Caazapá y no en Caaguazú).
+- **Siguen sin ubicar:** Colonias Unidas, Retiro Alegre, PR-L1196 y CAF fase 3. Tampoco se halló Quiindy (San Pedro) ni los km de Choré – Kokuere – San Pablo.
+
 ## Regenerar
 
 ```
