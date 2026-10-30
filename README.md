@@ -51,7 +51,7 @@ Se revisaron los tramos dudosos, los aproximados, los que no tenían km oficial 
 - Cartera de Proyectos del MOPC, publicada en informacionpublica.paraguay.gov.py.
 - Patrulla Caminera, Agencia IP, ABC Color, Última Hora y La Nación.
 - Llamado BID LPI 29/2018 (PR-L1092).
-- Mapas MOPC de San Pedro, Canindeyú, Caazapá, Caaguazú e Itapúa: Inventario Vial (corte dic-2025) y Obras en Ejecución 2026. Se georreferenciaron con las localidades y se superpusieron los tramos.
+- Mapas MOPC de San Pedro, Canindeyú, Caazapá, Caaguazú, Itapúa y Concepción: Inventario Vial (corte dic-2025) y Obras en Ejecución 2026. Se georreferenciaron con las localidades y se superpusieron los tramos.
 
 Resultados:
 
@@ -68,7 +68,8 @@ Resultados:
 - **Caaguazú:** PY13 – Tarumai – San Joaquín y Santa Rosa del Mbutuy – San Joaquín siguen caminos pavimentados del Inventario MOPC 2025; el primero se extendió hasta el empalme con la ruta nacional (17,0 km frente a 19,04 km). Se agregaron dos obras en ejecución del mapa MOPC 2026: Santo Domingo – Escuela Agrícola – Sidepar – PY13 (26,2 km frente a 27,13 km) y la Ruta de la Banana por la D043 hasta Tembiaporã (30,3 km, sin km oficial).
 - **Itapúa:** según el mapa MOPC de obras 2026, Cruce Kimex – Carlos Antonio López es la pavimentación de la PY18 desde el empalme con la PY06, en el Cruce Kimex de San Rafael del Paraná; antes se dibujaba desde otra localidad del INE con el mismo nombre, 6 km al noreste (56,2 km frente a 57,22 km). Se agregó la obra en ejecución Naranjito – Nueva Aurora – Col. Santa Inés (27,5 km); Col. Santa Inés no figura en el INE y se dibuja hasta Nueva Aurora (19,9 km).
 - **Cruce PY13 – 3 de Febrero – Colonias Unidas:** Colonias Unidas es la localidad Colonia Unida del INE, en Raúl A. Oviedo (Caaguazú). Sigue el ripio del Inventario MOPC 2025 desde la PY13 y luego la ruta más corta del INE (41,9 km frente a 42,9 km).
-- **Siguen sin ubicar:** Retiro Alegre, PR-L1196 y CAF fase 3.
+- **San Carlos del Apa – Retiro Alegre:** Retiro Alegre se ubicó con Google Maps, en el cruce con la PY22. Va por la D001 del Mapa Vial MOPC 2026 (47,1 km frente a 46 km). Es un proyecto aprobado, sin obra.
+- **Siguen sin ubicar:** PR-L1196 y CAF fase 3.
 - **Choré – Kokuere – San Pablo:** 37,7 km según el MOPC; el trazado da 37,2 km y coincide.
 - **Caazapá – Tajy – Colonia Cosme – Vizcaíno Kue:** se trazó con los puntos de Google Maps (25,1 km; el trazado da 26,5 km). En el Mapa Vial MOPC 2026 de Caazapá figura como camino vecinal. La ley 7527/2025 lo extiende hasta Fulgencio Yegros, pero ese tramo no se dibuja porque la red del INE no tiene un camino directo.
 
