@@ -70,7 +70,14 @@ Resultados:
 - **Itapúa:** según el mapa MOPC de obras 2026, Cruce Kimex – Carlos Antonio López es la pavimentación de la PY18 desde el empalme con la PY06, en el Cruce Kimex de San Rafael del Paraná; antes se dibujaba desde otra localidad del INE con el mismo nombre, 6 km al noreste (56,2 km frente a 57,22 km). Se agregó la obra en ejecución Naranjito – Nueva Aurora – Col. Santa Inés (27,5 km); Col. Santa Inés no figura en el INE y se dibuja hasta Nueva Aurora (19,9 km).
 - **Cruce PY13 – 3 de Febrero – Colonias Unidas:** Colonias Unidas es la localidad Colonia Unida del INE, en Raúl A. Oviedo (Caaguazú). Sigue el ripio del Inventario MOPC 2025 desde la PY13 y luego la ruta más corta del INE (41,9 km frente a 42,9 km).
 - **San Carlos del Apa – Retiro Alegre:** Retiro Alegre se ubicó con Google Maps, en el cruce con la PY22. Va por la D001 del Mapa Vial MOPC 2026 (47,1 km frente a 46 km). Es un proyecto aprobado, sin obra.
-- **Sigue sin ubicar:** CAF fase 3.
+- **CAF fase 3 (Ley 7586/2025, USD 74,2 millones, promulgada en nov-2025):** el Anexo Técnico de la ley lista 8 caminos que suman 157,47 km; en el mapa suman 155,4 km. Todos van como aprobados.
+  - Coinciden: Fondo San Blas – Potrero Naranjo – San Pedro Poty (41,7 km frente a 39,06), Naranjaty – Colonia Barbero – Colonia Moreira (15,0 frente a 16,79; Moreira no figura en el INE) y General Artigas – Fram (30,7 frente a 28,33).
+  - San Dionisio – San Estanislao (14,3 frente a 16,51) arranca en General Delgado, sobre la PY01, porque entre las dos localidades hay solo 9,3 km.
+  - Natalicio Talavera – Botrell – M. J. Troche es aproximado (10,9 frente a 14,54).
+  - Se dibujaron hasta completar los km oficiales: Koe Porã – Itanará (20,46), 6 de Enero – Manduará (3,5) y Santa María de Fe – Cruce 4 Bocas – PY01 (18,28).
+  - Cruce 4 Bocas no figura en ninguna fuente. Se eligió el camino de tierra a Santa Rosa, porque los caminos directos a San Ignacio y a Santa Rosa ya están asfaltados.
+  - Koe Porã – Itanará puede superponerse con el lote BID Villa Ygatimí – Koe Porã – Arroyo Itanará (20,84 km, Wheelco), en ejecución según el mapa MOPC de obras 2026.
+- Ya no quedan tramos sin ubicar.
 - **Choré – Kokuere – San Pablo:** 37,7 km según el MOPC; el trazado da 37,2 km y coincide.
 - **Caazapá – Tajy – Colonia Cosme – Vizcaíno Kue:** se trazó con los puntos de Google Maps (25,1 km; el trazado da 26,5 km). En el Mapa Vial MOPC 2026 de Caazapá figura como camino vecinal. La ley 7527/2025 lo extiende hasta Fulgencio Yegros, pero ese tramo no se dibuja porque la red del INE no tiene un camino directo.
 
