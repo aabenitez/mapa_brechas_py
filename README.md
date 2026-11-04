@@ -51,6 +51,7 @@ Se revisaron los tramos dudosos, los aproximados, los que no tenían km oficial 
 - Cartera de Proyectos del MOPC, publicada en informacionpublica.paraguay.gov.py.
 - Patrulla Caminera, Agencia IP, ABC Color, Última Hora y La Nación.
 - Llamado BID LPI 29/2018 (PR-L1092).
+- Leyes de préstamo: Ley 7586/2025 (CAF fase 3) y Ley 7704/2026 (BID PR-L1196, expediente SILpy 155164), con sus anexos de tramos.
 - Mapas MOPC de San Pedro, Canindeyú, Caazapá, Caaguazú, Itapúa, Concepción y Misiones: Inventario Vial (corte dic-2025) y Obras en Ejecución 2026. Se georreferenciaron con las localidades y se superpusieron los tramos.
 
 Resultados:
@@ -62,7 +63,13 @@ Resultados:
 - **Ubicados por primera vez:** Guajayví – Río Curuguaty'i (32 km), Nueva Esperanza – Laurel – Acceso a Santa Lucía (39,51 km) y Cruce Alpa – Lima (15,93 km, en ejecución, en Caazapá y no en Caaguazú).
 - **Lima – Quiindy:** Quiindy se ubicó con el Inventario MOPC 2025, unos 4 km antes de Naranjito. Lima – Quiindy da 25,0 km (oficial 24,10) y coincide.
 - **Nueva Esperanza – Laurel – Acceso a Santa Lucía:** va por Laurel y la D087 hasta la PY03 (39,2 km frente a 39,51 km). Antes se dibujaba hasta la colonia Santa Lucía (Itakyry, 34,4 km), pero ese camino sigue sin asfaltar: en abr-2026 aún buscaba financiamiento (La Nación).
-- **PR-L1196 (BID, USD 75 millones, 123,79 km, sancionado por Diputados en ago-2026):** seis tramos, todos aprobados; solo Laurel – Santa Lucía tiene km oficial propio. Los tres de Caaguazú vienen de la lista de Diputados (67,8 km en el mapa frente a 60,25 km). Maracaná – Arroyo Kanguery y Abaí – Tarumá – Tuna son de la lista del MOPC de 2024 y van "por confirmar"; Maracaná es de baja confianza. Laurel – Santa Lucía quedó confirmado en ago-2026: la diputada Rocío Abed le asigna 11,32 km (Punto Límite). Se dibuja el camino de tierra de Laurel hasta la D087 asfaltada (15,9 km), que queda como dudoso porque no se publicó qué parte de ese camino es la obra. La misma diputada nombra para Alto Paraná Ruta PY07 – San Alberto Sur (4,62 km) y un puente de 100 m sobre el río Monday (Minga Guazú – Colonia Pengo San Miguel), que no están en el mapa.
+- **PR-L1196 (BID 6020/OC-PR, USD 75 millones):** Ley 7704/2026, sancionada el 12-ago-2026 y promulgada el 02-sep-2026. El Anexo Único, Cuadro 1, lista 7 caminos que suman 123,79 km; en el mapa suman 123,0 km.
+  - Coinciden: Carayaó – Cerro Corá – Nicolás Bo (12,9 km frente a 12,06), Maracaná – Arroyo Kanguery (20,9 frente a 18,38) y Abaí – Tarumá – Tuna (27,8 frente a 29,22).
+  - Cristo Rey – Asent. 24.000 – A° Norte – Carpa Cue es aproximado (27,7 frente a 35,19).
+  - Laurel – Santa Lucía queda como dudoso (15,9 frente a 11,32): se dibuja el camino de tierra de Laurel hasta la D087 asfaltada, y no se publicó qué parte de ese camino es la obra.
+  - Ruta 13 – Bella Vista se corta en los 13,00 km oficiales: se dibujan los últimos 13 km por la D019 hasta Bella Vista (Yhú), que incluyen la mayor parte del tramo de tierra.
+  - Ruta PY07 – San Alberto Sur (4,62 km) es nuevo y de baja confianza: San Alberto Sur no figura en ninguna fuente, y se dibuja desde la PY07 en Cruce San Alberto hacia el casco de San Alberto.
+  - El Cuadro 2 suma 315 m de puentes, que no se dibujan: Caaguazú (Ruta PY02 – Guavirá – Calle 16 – R13 Corrales, 20 m; Empalme R13 Corrales – Calle 16-A Tobatiry, 2 × 30 m; Ruta PY13 – Vaquería – Bella Vista – Virgen del Rosario – Ruta PY03, 25 m), San Pedro (Cururu'o – Ara Pyahu, 15 m), Concepción (Horqueta – Egua – Belén Cue – Cuartelero – Ruta PY05 y ramales, 15 + 15 + 10 m), Canindeyú (Colonia Bella Vista – Empalme Araujo Cue, 25 m), Itapúa (Calle B Sur – Capitán Miranda – Arroyo Porá, 30 m) y Alto Paraná (Ruta PY02 Minga Guazú – Colonia Pengo San Miguel, 100 m).
 - **Gral. Morínigo – Caazapá:** se redibujó como en el mapa MOPC de obras 2026: desde la PY18, unos 7 km al sureste del casco de Morínigo, hasta Caazapá (38,9 km frente a 37,93 km).
 - **Cruce Alpa – Lima:** según el mismo mapa, Cruce Alpa está en el límite con Itapúa y la obra sigue la D046 por Col. Lima; se dibuja hasta completar los 15,93 km oficiales.
 - **Abaí – Gral. Morínigo:** obra en ejecución que figura en el mapa MOPC (14,9 km, Edivi). Se agregó al mapa con la ruta más corta del INE (16,5 km).
