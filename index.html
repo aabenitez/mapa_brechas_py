@@ -221,15 +221,16 @@ peajes.addTo(mapa);
 L.control.layers(
   { "Mapa": osm, "Satélite": sat },
   { "Tramos": tramos, "Puestos de peaje (INE)": peajes, "Caminos rurales de tierra (INE)": tierra,
-    "Iluminación nocturna (INE)": iluminacion, "Departamentos": dptos,
-    "Vías principales (INE)": principales, "Nivel socioeconómico (INE, Censo 2022)": nse },
+    "Departamentos": dptos, "Vías principales (INE)": principales,
+    "Iluminación nocturna (INE)": iluminacion, "Nivel socioeconómico (INE, Censo 2022)": nse },
   { collapsed: true }
 ).addTo(mapa);
 L.control.scale({ imperial: false }).addTo(mapa);
 
-// la iluminación nocturna arranca activa; mapa_tramos.html#capas=nse activa también el nivel socioeconómico
-iluminacion.addTo(mapa);
+// la iluminación nocturna y el nivel socioeconómico arrancan apagados;
+// mapa_tramos.html#capas=ilum,nse los activa
 const pedidas = (location.hash.match(/capas=([\w,]+)/) || [, ""])[1].split(",");
+if (pedidas.includes("ilum")) iluminacion.addTo(mapa);
 if (pedidas.includes("nse")) nse.addTo(mapa);
 
 const tb = document.querySelector("#tabla tbody");

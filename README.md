@@ -16,7 +16,7 @@ Abrir `mapa_tramos.html` con doble clic. Necesita internet para el mapa base y l
 | Iluminación nocturna | `geonode:iluminacion2` | Ráster con 8 clases de luminosidad. Solo se puede ver por WMS. |
 | Nivel socioeconómico | `geonode:_<dpto>___urbano` / `___rural` | Polígonos por barrio o localidad, Censo 2022. Campo `nivsoecdes`: Alto, Medio alto, Medio, Medio bajo, Bajo. Es la misma capa del zip de Guairá. |
 
-La iluminación nocturna arranca activa. Para abrir el mapa con el nivel socioeconómico también activo, agregar `#capas=nse` al final de la dirección.
+La iluminación nocturna y el nivel socioeconómico arrancan apagados. Para abrir el mapa con alguna de ellas activa, agregar `#capas=ilum`, `#capas=nse` o `#capas=ilum,nse` al final de la dirección.
 
 - Descarga en GeoJSON (WFS):
   `https://geonode.ine.gov.py/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeNames=CAPA&outputFormat=application/json&srsName=EPSG:4326`
