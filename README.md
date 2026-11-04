@@ -52,7 +52,7 @@ Se revisaron los tramos dudosos, los aproximados, los que no tenían km oficial 
 - Patrulla Caminera, Agencia IP, ABC Color, Última Hora y La Nación.
 - Llamado BID LPI 29/2018 (PR-L1092).
 - Leyes de préstamo: Ley 7586/2025 (CAF fase 3) y Ley 7704/2026 (BID PR-L1196, expediente SILpy 155164), con sus anexos de tramos.
-- Mapas MOPC de San Pedro, Canindeyú, Caazapá, Caaguazú, Itapúa, Concepción y Misiones: Inventario Vial (corte dic-2025), Obras en Ejecución 2026 y, para Canindeyú y Misiones, Mapa Vial 2026. Se georreferenciaron con las localidades y se superpusieron los tramos.
+- Mapas MOPC de San Pedro, Canindeyú, Caazapá, Caaguazú, Itapúa, Concepción, Misiones y Alto Paraná: Inventario Vial (corte dic-2025), Obras en Ejecución 2026 y, para Canindeyú, Misiones y Alto Paraná, Mapa Vial 2026. Se georreferenciaron con las localidades y se superpusieron los tramos.
 
 Resultados:
 
