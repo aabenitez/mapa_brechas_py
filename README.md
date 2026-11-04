@@ -72,7 +72,7 @@ Resultados:
 - **San Carlos del Apa – Retiro Alegre:** Retiro Alegre se ubicó con Google Maps, en el cruce con la PY22. Va por la D001 del Mapa Vial MOPC 2026 (47,1 km frente a 46 km). Es un proyecto aprobado, sin obra.
 - **CAF fase 3 (Ley 7586/2025, USD 74,2 millones, promulgada en nov-2025):** el Anexo Técnico de la ley lista 8 caminos que suman 157,47 km; en el mapa suman 156,7 km. Todos van como aprobados.
   - Coinciden: Fondo San Blas – Potrero Naranjo – San Pedro Poty (41,7 km frente a 39,06), Naranjaty – Colonia Barbero – Colonia Moreira (15,0 frente a 16,79; Moreira no figura en el INE), General Artigas – Fram (30,7 frente a 28,33) y Santa María de Fe – Cruce 4 Bocas – PY01 (19,6 frente a 18,28).
-  - Santa María de Fe va por la D059 hasta la PY01 en San Juan Bautista. En los mapas MOPC de Misiones es la única salida de Santa María sin pavimentar: los caminos a San Ignacio y a Santa Rosa ya están asfaltados. Cruce 4 Bocas no figura en ningún mapa.
+  - Santa María de Fe va por la D059 hasta la PY01 en San Juan Bautista. En los mapas MOPC de Misiones es la única salida de Santa María sin pavimentar: los caminos a San Ignacio y a Santa Rosa ya están asfaltados. Cruce 4 Bocas se ubicó con Google Maps junto a la Granja (Quinta) 4 Bocas, 0,8 km antes de la PY01: el trazado pasa por ahí en el km 18,8, casi los 18,28 km oficiales.
   - San Dionisio – San Estanislao (14,3 frente a 16,51) arranca en General Delgado, sobre la PY01, porque entre las dos localidades hay solo 9,3 km.
   - Natalicio Talavera – Botrell – M. J. Troche es aproximado (10,9 frente a 14,54).
   - Se dibujaron hasta completar los km oficiales: Koe Porã – Itanará (20,46) y 6 de Enero – Manduará (3,5).
