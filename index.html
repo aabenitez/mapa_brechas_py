@@ -281,8 +281,9 @@ L.control.layers(
 L.control.scale({ imperial: false }).addTo(mapa);
 
 // la iluminación nocturna y el nivel socioeconómico arrancan apagados;
-// mapa_tramos.html#capas=ilum,nse los activa
+// mapa_tramos.html#capas=ilum,nse los activa (y "vias", las vías principales)
 const pedidas = (location.hash.match(/capas=([\w,]+)/) || [, ""])[1].split(",");
+if (pedidas.includes("vias")) principales.addTo(mapa);
 if (pedidas.includes("ilum")) iluminacion.addTo(mapa);
 if (pedidas.includes("nse")) nse.addTo(mapa);
 

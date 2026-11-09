@@ -16,7 +16,9 @@ Abrir `mapa_tramos.html` con doble clic. Necesita internet para el mapa base y l
 | Iluminación nocturna | `geonode:iluminacion2` | Ráster con 8 clases de luminosidad. Solo se puede ver por WMS. |
 | Nivel socioeconómico | `geonode:_<dpto>___urbano` / `___rural` | Polígonos por barrio o localidad, Censo 2022. Campo `nivsoecdes`: Alto, Medio alto, Medio, Medio bajo, Bajo. Es la misma capa del zip de Guairá. |
 
-La iluminación nocturna y el nivel socioeconómico arrancan apagados. Para abrir el mapa con alguna de ellas activa, agregar `#capas=ilum`, `#capas=nse` o `#capas=ilum,nse` al final de la dirección.
+La iluminación nocturna, el nivel socioeconómico y las vías principales arrancan apagados. Para abrir el mapa con alguna activa, agregar `#capas=ilum`, `#capas=nse`, `#capas=vias` o una combinación (`#capas=vias,ilum`) al final de la dirección.
+
+La capa «Vías principales» pinta cada ruta nacional con el color de la infografía de ABC Color sobre la nueva nominación del MOPC (Resolución 1090/2019, 10-sep-2019). Al hacer clic se ve el número, el inicio, el fin y la longitud oficial; la barra lateral tiene la misma tabla. El trazado y el número de cada tramo salen del campo `NOMBRE` de la capa del INE, que en algunos lugares no coincide con el MOPC (cerca de San Alberto, el INE llama PY07 a la D026). `scripts/simplificar_rutas.py` agrupa la capa por ruta y la simplifica en `data/rutas.geojson`.
 
 - Descarga en GeoJSON (WFS):
   `https://geonode.ine.gov.py/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeNames=CAPA&outputFormat=application/json&srsName=EPSG:4326`
@@ -94,6 +96,7 @@ Resultados:
 ```
 py -I scripts/rutear.py
 py -I scripts/simplificar_dptos.py
+py -I scripts/simplificar_rutas.py
 py -I scripts/generar_mapa.py
 ```
 
