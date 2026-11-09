@@ -157,7 +157,8 @@ const CAPAS_NSE = ["geonode:_asuncion___urbano", "geonode:_central_metropolitano
 const COLOR = { intervenido: "#1b7a3e", en_ejecucion: "#d97706", aprobado: "#7c3aed" };
 const ETIQ = { intervenido: "Intervenido", en_ejecucion: "En ejecución", aprobado: "Aprobado, sin obra" };
 
-const mapa = L.map("mapa", { preferCanvas: true }).setView([-24.9, -56.2], 7);
+// un solo lienzo para tramos y rutas: si cada capa tuviera el suyo, el de arriba se tragaría los clics
+const mapa = L.map("mapa", { preferCanvas: true, renderer: L.canvas({ tolerance: 6 }) }).setView([-24.9, -56.2], 7);
 const osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 18, attribution: "&copy; OpenStreetMap"
 }).addTo(mapa);
@@ -204,12 +205,9 @@ function resaltar(capa, color, demora = 0) {
     setTimeout(() => mapa.removeLayer(h), 3100);
   }, demora);
 }
-mapa.createPane("rutas").style.zIndex = 390;  // debajo de los tramos
-const lienzoRutas = L.canvas({ pane: "rutas", tolerance: 6 });
 const capasRuta = {};
 const colorRuta = p => p.tipo === "nacional" ? (RUTAS_INFO[p.ruta] || ["#334e68"])[0] : "#7b8794";
 const principales = L.geoJSON(RUTAS, {
-  pane: "rutas", renderer: lienzoRutas,
   style: f => f.properties.tipo === "nacional"
     ? { color: colorRuta(f.properties), weight: 3.5, opacity: 0.95 }
     : { color: colorRuta(f.properties), weight: 1.5, opacity: 0.8 },
@@ -293,6 +291,8 @@ const tramos = L.geoJSON(TRAMOS, {
 }).addTo(mapa);
 mapa.fitBounds(tramos.getBounds(), { padding: [30, 30] });
 peajes.addTo(mapa);
+// al prender las rutas, los tramos se vuelven a dibujar encima
+principales.on("add", () => tramos.bringToFront());
 
 L.control.layers(
   { "Mapa": osm, "Satélite": sat },
