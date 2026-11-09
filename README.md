@@ -18,7 +18,9 @@ Abrir `mapa_tramos.html` con doble clic. Necesita internet para el mapa base y l
 
 La iluminación nocturna, el nivel socioeconómico y las vías principales arrancan apagados. Para abrir el mapa con alguna activa, agregar `#capas=ilum`, `#capas=nse`, `#capas=vias` o una combinación (`#capas=vias,ilum`) al final de la dirección.
 
-La capa «Vías principales» pinta cada ruta nacional con el color de la infografía de ABC Color sobre la nueva nominación del MOPC (Resolución 1090/2019, 10-sep-2019). Al hacer clic se ve el número, el inicio, el fin y la longitud oficial; la barra lateral tiene la misma tabla. Las rutas departamentales (en gris) también se pueden cliquear. Al hacer clic en una ruta o un tramo, en el mapa o en la tabla, la línea se resalta con un halo que late unos 3 segundos y se apaga. El trazado y el número de cada tramo salen del campo `NOMBRE` de la capa del INE, que en algunos lugares no coincide con el MOPC (cerca de San Alberto, el INE llama PY07 a la D026). `scripts/simplificar_rutas.py` agrupa la capa por ruta y la simplifica en `data/rutas.geojson`.
+La capa «Vías principales» pinta cada ruta nacional con el color de la infografía de ABC Color sobre la nueva nominación del MOPC (Resolución 1090/2019, 10-sep-2019). Al hacer clic se ve el número, el inicio, el fin y la longitud oficial; la barra lateral tiene la misma tabla. Las rutas departamentales (en gris) también se pueden cliquear. Al hacer clic en una ruta o un tramo, en el mapa o en la tabla, la línea se resalta con un halo que late unos 3 segundos y se apaga.
+
+Inicio, fin y longitud oficial se verificaron con el Mapa Vial del MOPC, corte de inventario dic-2025, versión 2 (publicado en mar-2026, [PDF](https://mopc.gov.py/uplmoo9eib8eefou3ooze4y/2026/03/mapa-inventario_2025-v2.pdf)): su cuadro de rutas nacionales tiene los mismos km que la Resolución 1090/2019 (total 8.767 km). El trazado de las 22 rutas nacionales sigue ese mapa. En la capa de vías principales del INE cada ruta venía cortada (la PY17 tenía un hueco de 68 km; la PY16, de 69 km) y con pedazos sueltos con el número de otra ruta. `scripts/rutas_mopc.py` rasteriza el PDF del MOPC, separa la red de rutas nacionales (línea rosada, o negra con borde rosado), la georreferencia (UTM 21S, 1:1.250.000) y busca para cada ruta el camino más corto sobre la red vial del INE que siga esa traza. Donde la red del INE no tiene camino y el MOPC sí dibuja la ruta, ese pedazo se lee del mapa del MOPC (precisión de unos 150 m): la PY17 entre Ypejhú y Salto del Guairá por la frontera (147 km), la PY22 al norte de Nueva Germania (21 km) y algunos tramos del Chaco en la PY08, PY15 y PY16. Tres extremos se fijaron a mano, con su motivo, en `scripts/rutas_mopc_extremos.json`: la PY13 empieza en Paso Yobái, la PY20 en San Patricio y la PY17 se guía por Ypejhú. El popup muestra la longitud oficial y la del trazado; todas quedan dentro de ±10 % de la oficial (la PY08 da 630 km contra 588; la PY21, 338 contra 309; la PY17, 354 contra 380). Las rutas departamentales siguen tal como vienen en la capa del INE. `scripts/simplificar_rutas.py` agrupa la capa por ruta, reemplaza las nacionales por las de `data/rutas_mopc.geojson` y simplifica todo en `data/rutas.geojson`.
 
 - Descarga en GeoJSON (WFS):
   `https://geonode.ine.gov.py/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeNames=CAPA&outputFormat=application/json&srsName=EPSG:4326`
@@ -96,6 +98,7 @@ Resultados:
 ```
 py -I scripts/rutear.py
 py -I scripts/simplificar_dptos.py
+py -P -E scripts/rutas_mopc.py      # necesita numpy, scipy, pyproj y pypdfium2 (pip install --user)
 py -I scripts/simplificar_rutas.py
 py -I scripts/generar_mapa.py
 ```
