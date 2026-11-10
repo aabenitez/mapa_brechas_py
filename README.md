@@ -89,6 +89,7 @@ Resultados:
   - Natalicio Talavera – Botrell – M. J. Troche sigue la ruta de Google Maps (17,7 km): cruza el Tebicuary hasta Dr. Bottrell y va por el norte, por Ñumi y Costa Caballero, hasta la D015. Da 18,1 km frente a 14,54 y queda como aproximado. En la red del INE falta un tramo de 640 m de ese camino, que se empalmó.
   - Se dibujaron hasta completar los km oficiales: Koe Porã – Itanará (20,46) y 6 de Enero – Manduará (3,5).
   - Koe Porã – Itanará puede superponerse con el lote BID Villa Ygatimí – Koe Porã – Arroyo Itanará (20,84 km, Wheelco), en ejecución según el mapa MOPC de obras 2026.
+- **Plan Central 2 (llamado MOPC N° 51/2024, DNCP 449370):** 122 tramos y 134,1 km en Areguá, Capiatá, Guarambaré, Itá, Ñemby y San Lorenzo, en cinco lotes adjudicados en dic-2024 por unos G. 297.000 millones: lote 1 Itá (Consorcio Central de Pavimentación, Covipa y Chaves), lote 2 Areguá (Construpar), lote 3 Capiatá (MM S.A.), lote 4 Ñemby y Guarambaré (Ing. Carlos V. Gueyraud) y lote 5 San Lorenzo (Consorcio Yberá, Sotec y Feldmann). En nov-2026 superaba el 55 % de avance (Hoy, 08-nov-2026). El pliego incluye un archivo de georreferenciamiento con el trazado y el largo oficial de cada tramo (`fuentes/plan_central2.kml`). La mayoría son calles urbanas ya pavimentadas o de barrio; `scripts/central2.py` mide cada tramo sobre la red vial del INE 2022 y deja en el mapa solo los mayormente rurales o mayormente de tierra: 21 tramos, 35,9 km, como «en ejecución». El INE cuenta como área urbana casi todo Areguá, Capiatá, Ñemby, San Lorenzo y Guarambaré, por eso el criterio incluye los caminos de tierra aunque estén en área urbana (Yukyty – Caacupemí, Cocue Guazú, Guarambaré – Tape Tuya, entre otros). En el archivo, Guarambaré figura como «Lote 3»; según la adjudicación va con Ñemby en el lote 4.
 - Ya no quedan tramos sin ubicar.
 - **Choré – Kokuere – San Pablo:** 37,7 km según el MOPC; el trazado da 37,2 km y coincide.
 - **Caazapá – Tajy – Colonia Cosme – Vizcaíno Kue:** se trazó con los puntos de Google Maps (25,1 km; el trazado da 26,5 km). En el Mapa Vial MOPC 2026 de Caazapá figura como camino vecinal. La ley 7527/2025 lo extiende hasta Fulgencio Yegros, pero ese tramo no se dibuja porque la red del INE no tiene un camino directo.
@@ -97,6 +98,7 @@ Resultados:
 
 ```
 py -I scripts/rutear.py
+py -I scripts/central2.py
 py -I scripts/simplificar_dptos.py
 py -P -E scripts/rutas_mopc.py      # necesita numpy, scipy, pyproj y pypdfium2 (pip install --user)
 py -I scripts/simplificar_rutas.py
