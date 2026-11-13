@@ -16,7 +16,9 @@ Abrir `mapa_tramos.html` con doble clic. Necesita internet para el mapa base y l
 | Iluminación nocturna | `geonode:iluminacion2` | Ráster con 8 clases de luminosidad. Solo se puede ver por WMS. |
 | Nivel socioeconómico | `geonode:_<dpto>___urbano` / `___rural` | Polígonos por barrio o localidad, Censo 2022. Campo `nivsoecdes`: Alto, Medio alto, Medio, Medio bajo, Bajo. Es la misma capa del zip de Guairá. |
 
-La iluminación nocturna, el nivel socioeconómico y las vías principales arrancan apagados. Para abrir el mapa con alguna activa, agregar `#capas=ilum`, `#capas=nse`, `#capas=vias` o una combinación (`#capas=vias,ilum`) al final de la dirección.
+La iluminación nocturna, el nivel socioeconómico, las vías principales y las zonas inundables arrancan apagados. Para abrir el mapa con alguna activa, agregar `#capas=ilum`, `#capas=nse`, `#capas=vias`, `#capas=inund` o una combinación (`#capas=vias,inund`) al final de la dirección.
+
+**Zonas inundables.** Ni el INE ni el MOPC publican una capa nacional de zonas inundables, así que se usa el mapa global de amenaza de inundación fluvial de Copernicus (Global River Flood Hazard Maps v2.1.2, CEMS-GloFAS, JRC; licencia CC BY 4.0; [descarga](https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/CEMS-GLOFAS/flood_hazard/)). Es el área que cubriría una crecida de ríos con período de retorno de 100 años (1 % de probabilidad por año), modelada con LISFLOOD sobre un relieve de ~90 m, en cuatro clases de profundidad: menos de 1 m, 1–3 m, 3–10 m y más de 10 m. No incluye el cauce permanente de los ríos ni los anegamientos por lluvia local, y en el Chaco plano puede marcar como inundables zonas que solo se anegan. Las cuatro baldosas de 10° que cubren Paraguay están en `fuentes/glofas/`. `scripts/inundables.py` las une, junta los píxeles en celdas de ~300 m (se pinta la celda si al menos un tercio está inundado, con la clase promedio), recorta al contorno de Paraguay y guarda un PNG ya proyectado en Web Mercator (`data/inundables.png`; `data/inundables_liviano.png`, de ~600 m, para la versión liviana). Con esa regla queda inundable el 29 % del país, sobre todo el Chaco, Ñeembucú y las riberas de los ríos Paraguay, Pilcomayo y Tebicuary. El mapa completo lleva la imagen adentro; la versión liviana la pide a GitHub Pages.
 
 La capa «Vías principales» pinta cada ruta nacional con el color de la infografía de ABC Color sobre la nueva nominación del MOPC (Resolución 1090/2019, 10-sep-2019). Al hacer clic se ve el número, el inicio, el fin y la longitud oficial; la barra lateral tiene la misma tabla. Las rutas departamentales (en gris) también se pueden cliquear. Al hacer clic en una ruta o un tramo, en el mapa o en la tabla, la línea se resalta con un halo que late unos 3 segundos y se apaga.
 
@@ -102,6 +104,7 @@ py -I scripts/central2.py
 py -I scripts/simplificar_dptos.py
 py -P -E scripts/rutas_mopc.py      # necesita numpy, scipy, pyproj y pypdfium2 (pip install --user)
 py -I scripts/simplificar_rutas.py
+py -P -E scripts/inundables.py      # necesita numpy, pillow y tifffile
 py -I scripts/generar_mapa.py
 ```
 
