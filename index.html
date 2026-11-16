@@ -250,7 +250,7 @@ function resaltar(capa, color, demora = 0) {
   setTimeout(() => {
     const h = L.geoJSON(capa.toGeoJSON(), {
       pane: "halo", renderer: lienzoHalo, interactive: false,
-      style: { color, weight: 18, opacity: 1, lineCap: "round", lineJoin: "round", className: "halo" }
+      style: { color, weight: 18, opacity: 1, fill: false, lineCap: "round", lineJoin: "round", className: "halo" }
     }).addTo(mapa);
     setTimeout(() => mapa.removeLayer(h), 3100);
   }, demora);
@@ -316,8 +316,15 @@ const peajes = L.geoJSON(PEAJES, {
 // versión liviana: sin límites incluidos, se piden al WMS del INE
 const dptos = DPTOS.features.length
   ? L.geoJSON(DPTOS, {
-      style: { color: "#52606d", weight: 1, fill: false, dashArray: "3 3" },
-      onEachFeature: (f, l) => l.bindTooltip(f.properties.dpto, { sticky: true })
+      // relleno invisible para que se pueda hacer clic en todo el departamento; los tramos y rutas, dibujados encima, tienen prioridad
+      style: { color: "#52606d", weight: 1, dashArray: "3 3", fill: true, fillColor: "#000", fillOpacity: 0 },
+      onEachFeature: (f, l) => {
+        l.bindTooltip(f.properties.dpto, { sticky: true });
+        l.on("click", () => {
+          mapa.fitBounds(l.getBounds(), { padding: [20, 20] });
+          resaltar(l, "#1d4ed8", 350);
+        });
+      }
     })
   : L.tileLayer.wms(INE, {
       layers: "geonode:Departamentos_Paraguay_INE_2022", format: "image/png", transparent: true,
