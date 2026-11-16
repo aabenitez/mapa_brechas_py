@@ -108,6 +108,16 @@ Resultados:
   - Isla Umbú – Desmochados, Isla Sola – Laureles y Cerro Guy – Cerro Frente quedan como trazado dudoso: los km de las notas del MOPC (18, 21 y 12 km) no coinciden con lo que mide el camino entre las localidades en la red del INE (28,7, 34,9 y 4,7 km).
   - Los caminos que ABC reportó intransitables en Ybycuí y Mbuyapey (oct-2026) no tienen proyecto publicado.
 
+- **Cordillera (nov-2026):** fuentes: el mapa MOPC de obras en ejecución de Cordillera (mar-2026), la Ley 7527/2025, la Cartera de Proyectos del MOPC, Agencia IP, ABC Color, Última Hora y La Nación. Se agregaron 6 tramos:
+  - **En ejecución:**
+    - Caacupé – Piribebuy: 16 km, Iniciativas Constructivas, G. 19.692 millones; adjudicado en nov-2025, con trabajos preliminares desde jul-2026.
+    - Ruta D009 Arroyos y Esteros – Tobatí: 29 km, Proel Ingeniería, G. 63.937 millones, Llamado 45/2025. Es una rehabilitación de un camino que ya es casi todo asfalto.
+    - Ruta D018 Mbocayaty del Yhaguy – San José de los Arroyos: 20,30 km, Ecomipa, LPN 93/2022 lote 4, G. 40.757 millones. Figura en el mapa MOPC de obras.
+  - **Intervenido:** Arroyos y Esteros – 1° de Marzo (23,6 km, contrato de 2020 con Tecnología del Sur). No se encontró la nota de habilitación y el INE 2022 lo marca asfaltado solo a medias.
+  - **Aprobados:** Atyrá – Tobatí (Ley 7527/2025, sobre empedrado) y Arroyos y Esteros – Pirapomí (Cartera MOPC, 15,79 km).
+  - **Sin ubicar:** Ruta PY02 (km 96) – Colonia Yhaca (Ley 7527/2025), porque no se encontró la colonia.
+  - Los trabajos de mantenimiento del MOPC en Cordillera de 2026 (24,6 km en seis distritos, entre otros) no se dibujan: las notas no dicen dónde empieza ni termina cada camino.
+
 ## Regenerar
 
 ```
