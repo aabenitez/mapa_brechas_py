@@ -44,7 +44,7 @@
   #buscador { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0 4px; }
   #buscador input, #buscador select { font:inherit; font-size:12.5px; padding:5px 7px; border:1px solid var(--borde); border-radius:5px; background:#fff; color:var(--texto); }
   #q { flex:1 1 100%; }
-  #fdpto { flex:1 1 auto; min-width:0; }
+  #fdpto, #fprog { flex:1 1 140px; min-width:0; }
   #cuenta { font-size:12px; color:var(--suave); align-self:center; }
   #cuenta a { color:#334e68; }
   /* barra lateral colapsable */
@@ -77,6 +77,7 @@
     <div id="buscador" role="search">
       <input type="search" id="q" placeholder="Buscar tramo, localidad o programa…" aria-label="Buscar tramo">
       <select id="fdpto" aria-label="Filtrar por departamento"><option value="">Todos los departamentos</option></select>
+      <select id="fprog" aria-label="Filtrar por programa o financiamiento"><option value="">Todos los programas</option></select>
       <span id="cuenta"></span>
     </div>
 
@@ -416,33 +417,65 @@ const datosFila = TRAMOS.features.slice().sort((a, b) => orden[a.properties.esta
 const selDpto = document.getElementById("fdpto"), inQ = document.getElementById("q"), cuenta = document.getElementById("cuenta");
 [...new Set(TRAMOS.features.flatMap(f => dptosDe(f.properties.dpto)).concat(SIN_UBICAR.flatMap(s => dptosDe(s.dpto))))]
   .sort((a, b) => a.localeCompare(b, "es")).forEach(d => selDpto.add(new Option(d.charAt(0) + d.slice(1).toLowerCase().replace(/ (\S)/g, (m, c) => " " + c.toUpperCase()), d)));
-function coincide(p, q, d) {
-  return (!d || dptosDe(p.dpto).includes(d)) && (!q || norm([p.nombre, p.dpto, p.programa, p.motivo].join(" ")).includes(q));
+// programas y financiadores: se reconocen en el texto del campo programa (un tramo puede estar en varios)
+const PROGRAMAS = [
+  ["Organismo / fuente", [
+    ["bid", "BID", /\bBID\b/],
+    ["caf", "CAF", /\bCAF\b/],
+    ["fonplata", "FONPLATA", /FONPLATA/],
+    ["uep", "UEP (MOPC)", /\bUEP\b/],
+    ["local", "Fondos locales / Tesoro", /fondos? local(es)?|Tesoro/i]]],
+  ["Programa / préstamo", [
+    ["l1084", "PR-L1084 (BID)", /PR-L1084/],
+    ["l1092", "PR-L1092 (BID 3600/OC-PR)", /PR-L1092/],
+    ["l1196", "PR-L1196 (BID, Ley 7704/2026)", /PR-L1196/],
+    ["caf3", "Caminos Vecinales y Puentes fase 3 (CAF, Ley 7586/2025)", /7586/],
+    ["rprod", "Ruta de la Producción (CAF)", /Ruta de la Producci/],
+    ["central2", "Plan Central 2 (MOPC 51/2024)", /Central 2/],
+    ["l7527", "Ley 7527/2025 (expropiación)", /7527/],
+    ["cartera", "Cartera MOPC", /Cartera MOPC/],
+    ["mant", "Mantenimiento MOPC", /Mantenimiento MOPC/]]]];
+const REGLA = Object.fromEntries(PROGRAMAS.flatMap(([, ops]) => ops.map(([k, , re]) => [k, re])));
+const textoProg = p => [p.programa, p.motivo].filter(Boolean).join(" ");
+const selProg = document.getElementById("fprog");
+PROGRAMAS.forEach(([grupo, ops]) => {
+  const og = document.createElement("optgroup");
+  og.label = grupo;
+  ops.forEach(([k, etiq, re]) => {
+    const n = TRAMOS.features.filter(f => re.test(textoProg(f.properties))).length;
+    if (n) og.appendChild(new Option(`${etiq} (${n})`, k));
+  });
+  if (og.children.length) selProg.appendChild(og);
+});
+function coincide(p, q, d, g) {
+  return (!d || dptosDe(p.dpto).includes(d)) && (!g || REGLA[g].test(textoProg(p))) &&
+    (!q || norm([p.nombre, p.dpto, p.programa, p.motivo].join(" ")).includes(q));
 }
 function filtrar(acercar) {
-  const q = norm(inQ.value.trim()), d = selDpto.value;
+  const q = norm(inQ.value.trim()), d = selDpto.value, g = selProg.value;
   let n = 0;
   const vistos = [];
   datosFila.forEach((p, i) => {
-    const ok = coincide(p, q, d);
+    const ok = coincide(p, q, d, g);
     filas[i].hidden = !ok;
     const l = capas[p.nombre];
     if (ok) { n++; vistos.push(l); if (!tramos.hasLayer(l)) tramos.addLayer(l); }
     else if (tramos.hasLayer(l)) tramos.removeLayer(l);
   });
-  [...document.querySelectorAll("#sinubicar tbody tr")].forEach((tr, i) => tr.hidden = !coincide(SIN_UBICAR[i], q, d));
-  const filtrando = q || d;
+  [...document.querySelectorAll("#sinubicar tbody tr")].forEach((tr, i) => tr.hidden = !coincide(SIN_UBICAR[i], q, d, g));
+  const filtrando = q || d || g;
   cuenta.innerHTML = filtrando ? `${n} de ${datosFila.length} tramos · <a href="#tit-tramos" data-acc="lista">ver lista</a> · <a href="#" data-acc="limpiar">limpiar</a>` : "";
   if (filtrando && acercar && vistos.length) mapa.fitBounds(L.featureGroup(vistos).getBounds(), { padding: [40, 40], maxZoom: 12 });
 }
 let espera;
 inQ.addEventListener("input", () => { clearTimeout(espera); espera = setTimeout(() => filtrar(true), 250); });
 selDpto.addEventListener("change", () => filtrar(true));
+selProg.addEventListener("change", () => filtrar(true));
 document.querySelector("#cuenta").addEventListener("click", e => {
   if (e.target.tagName !== "A") return;
   e.preventDefault();
   if (e.target.dataset.acc === "limpiar") {
-    inQ.value = ""; selDpto.value = ""; filtrar(false);
+    inQ.value = ""; selDpto.value = ""; selProg.value = ""; filtrar(false);
     mapa.fitBounds(tramos.getBounds(), { padding: [30, 30] });
   } else document.getElementById("tit-tramos").scrollIntoView({ behavior: "smooth" });
 });
