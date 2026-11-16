@@ -99,12 +99,6 @@
     <p>Sirve como aproximación de actividad económica y de acceso a servicios a lo largo de los caminos.</p>
     <img class="leyimg" alt="Leyenda de iluminación nocturna" src="https://geonode.ine.gov.py/geoserver/wms?service=WMS&request=GetLegendGraphic&format=image/png&WIDTH=16&HEIGHT=12&LAYER=geonode:iluminacion2&version=1.1.1&legend_options=fontAntiAliasing:true;fontSize:11">
     </div></div>
-    <div class="capa" data-capa="nse">
-    <label class="tcapa"><input type="checkbox" class="chk" data-capa="nse"><b>Nivel socioeconómico</b> <span class="sub">INE, Censo 2022</span><span class="flecha">▾</span></label>
-    <div class="desc">
-    <p>Por barrio o localidad: permite ver quiénes viven junto a cada tramo.</p>
-    <img class="leyimg" alt="Leyenda de nivel socioeconómico" src="https://geonode.ine.gov.py/geoserver/wms?service=WMS&request=GetLegendGraphic&format=image/png&WIDTH=16&HEIGHT=12&LAYER=geonode:_guaira___rural&version=1.1.1&legend_options=fontAntiAliasing:true;fontSize:11">
-    </div></div>
     <div class="capa" data-capa="inund">
     <label class="tcapa"><input type="checkbox" class="chk" data-capa="inund"><b>Zonas inundables</b> <span class="sub">Copernicus GloFAS, JRC</span><span class="flecha">▾</span></label>
     <div class="desc">
@@ -202,8 +196,6 @@ const ICONO_PEAJE = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(`<s
 </path>
 </svg>`);
 document.getElementById("icoPeaje").src = ICONO_PEAJE;
-// capas de nivel socioeconómico del INE (una urbana y una rural por departamento)
-const CAPAS_NSE = ["geonode:_asuncion___urbano", "geonode:_central_metropolitano", "geonode:_central_resto", "geonode:_central_rural", "geonode:_concepcion___urbano", "geonode:_concepcion___rural", "geonode:_san_pedro___urbano", "geonode:_san_pedro___rural", "geonode:_cordillera___urbano", "geonode:_cordillera___rural", "geonode:_guaira___urbano", "geonode:_guaira___rural", "geonode:_caaguazu___urbano", "geonode:_caaguazu___rural", "geonode:_caazapa___urbano", "geonode:_caazapa___rural", "geonode:_itapua___urbano", "geonode:_itapua___rural", "geonode:_misiones___urbano", "geonode:_misiones___rural", "geonode:_paraguari___urbano", "geonode:_paraguari___rural", "geonode:_alto_parana___urbano", "geonode:_alto_parana___rural", "geonode:_neembucu___urbano", "geonode:_neembucu___rural", "geonode:_amambay___urbano", "geonode:_amambay___rural", "geonode:_canindeyu___urbano", "geonode:_canindeyu___rural", "geonode:_pte_hayes___urbano", "geonode:_pte_hayes___rural", "geonode:_boqueron___urbano", "geonode:_boqueron___rural", "geonode:_alto_paraguay___urbano", "geonode:_alto_paraguay___rural"];
 
 const COLOR = { intervenido: "#1b7a3e", en_ejecucion: "#d97706", aprobado: "#7c3aed" };
 const ETIQ = { intervenido: "Intervenido", en_ejecucion: "En ejecución", aprobado: "Aprobado, sin obra" };
@@ -300,10 +292,6 @@ const inundables = L.imageOverlay("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA
   pane: "inundables", opacity: 0.65, interactive: false,
   attribution: "Zonas inundables: Copernicus GloFAS (JRC), CC BY 4.0"
 });
-const nse = L.tileLayer.wms(INE, {
-  layers: CAPAS_NSE.join(","), format: "image/png", transparent: true, opacity: 0.5,
-  attribution: "Nivel socioeconómico INE, Censo 2022"
-});
 
 const iconoPeaje = L.icon({ iconUrl: ICONO_PEAJE, iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -12] });
 const peajes = L.geoJSON(PEAJES, {
@@ -363,22 +351,21 @@ L.control.layers(
   { "Mapa": osm, "Satélite": sat },
   { "Tramos (Elaboración propia)": tramos, "Puestos de peaje (INE)": peajes, "Caminos rurales de tierra (INE)": tierra,
     "Departamentos": dptos, "Vías principales (INE)": principales,
-    "Iluminación nocturna (INE)": iluminacion, "Nivel socioeconómico (INE, Censo 2022)": nse,
+    "Iluminación nocturna (INE)": iluminacion,
     "Zonas inundables, crecida de 100 años (Copernicus)": inundables },
   { collapsed: true }
 ).addTo(mapa);
 L.control.scale({ imperial: false }).addTo(mapa);
 
-// la iluminación nocturna y el nivel socioeconómico arrancan apagados;
-// mapa_tramos.html#capas=ilum,nse los activa (y "vias", las vías principales; "inund", las zonas inundables)
+// la iluminación nocturna arranca apagada;
+// mapa_tramos.html#capas=ilum la activa (y "vias", las vías principales; "inund", las zonas inundables)
 const pedidas = (location.hash.match(/capas=([\w,]+)/) || [, ""])[1].split(",");
 if (pedidas.includes("vias")) principales.addTo(mapa);
 if (pedidas.includes("ilum")) iluminacion.addTo(mapa);
-if (pedidas.includes("nse")) nse.addTo(mapa);
 if (pedidas.includes("inund")) inundables.addTo(mapa);
 
 // casillas de la barra lateral: prenden y apagan cada capa, y se mantienen al día con el botón de capas
-const CAPAS_PANEL = { tramos, tierra, peajes, dptos, vias: principales, ilum: iluminacion, nse, inund: inundables };
+const CAPAS_PANEL = { tramos, tierra, peajes, dptos, vias: principales, ilum: iluminacion, inund: inundables };
 function marcar(clave) {
   const on = mapa.hasLayer(CAPAS_PANEL[clave]);
   document.querySelectorAll(`input.chk[data-capa="${clave}"]`).forEach(c => c.checked = on);
