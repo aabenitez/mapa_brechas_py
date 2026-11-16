@@ -126,6 +126,17 @@ Resultados:
     - Bella Vista Norte – Puentesiño (58 km): Puentesiño no figura en el INE, y el mapa MOPC ya muestra pavimentada la D001.
   - Las notas de mantenimiento del MOPC en Amambay (2025-2026, 40 km y otras) no dicen dónde empieza ni termina cada camino.
 
+- **Alto Paraná (nov-2026):** fuentes: el mapa MOPC de obras en ejecución de Alto Paraná (abr-2026), la Ley 7527/2025, la Cartera de Proyectos del MOPC y notas de prensa sobre la D065. Antes solo había un tramo (Ruta PY07 – San Alberto Sur, por confirmar). Las grandes obras del departamento son de rutas nacionales o urbanas y no se dibujan como tramos: la PY21 Puerto Indio – Supercarretera (CAF), la PY21 Cruce Margarita – Itakyry, el Corredor Metropolitano del Este y el puente sobre el río Monday, las travesías y circunvalaciones (Santa Rita, Hernandarias) y el asfaltado de calles urbanas del Plan 1000 de Itaipú, que no tiene tramos con inicio y fin. Se agregaron 7 tramos:
+  - **En ejecución:** Juan E. O'Leary – San Cristóbal (ruta D065), 62,29 km en tres lotes de la LPN MOPC 87/2024 con fondos locales; cerca de 30 % de avance en julio de 2026. En el mapa da 68,3 km porque arranca en el centro de O'Leary.
+  - **Aprobados (Ley 7527/2025 y Cartera MOPC):**
+    - San Alfredo – Colonia Mbareté (D064): 27,65 km; da 30,0 km.
+    - Colonia Mbareté – Río Ñacunday – Línea Progreso: 30,35 km en dos tramos de la Cartera; da 34,7 km. Línea Progreso se toma como la compañía Curupayty Línea El Progreso (Santa Rosa del Monday).
+    - Santa Rosa del Monday – Tavapy II: 28,45 km; da 23,5 km.
+    - Juan León Mallorquín – Ka'arendy Guasu – Puente Río Monday: sin longitud oficial. El puente de 120 m (CAF – FONPLATA) está en ejecución; el asfaltado del camino, solo en la ley.
+    - Ruta PY07 – Paranambu – Itaipyte – Parque Ñacunday: sin longitud oficial. La ley dice «Itaí», que no figura en el INE; se toma como Itaipyte.
+    - Tembiaporá – Nueva Toledo (Casilla 2): ramal de la PY21 en la Cartera, sin longitud propia. La ley lo pone en Alto Paraná, pero queda en Caaguazú, junto al lago Yguazú.
+  - **Sin ubicar:** Mariscal López – Santa Ana – Cruce Margarita (D007, Ley 7527/2025): hay varias localidades con esos nombres en Alto Paraná y Caaguazú y no se pudo saber cuáles une.
+
 ## Regenerar
 
 ```
