@@ -30,6 +30,16 @@
   .pt { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:5px; }
   .num { text-align:right; white-space:nowrap; }
   .leyimg { display:block; margin:2px 0 10px; max-width:100%; }
+  /* casillas para prender y apagar capas desde la barra lateral */
+  input.chk { margin:0; width:15px; height:15px; accent-color:#334e68; cursor:pointer; flex:none; }
+  label.ley { cursor:pointer; }
+  .capa { margin:6px 0 2px; }
+  .tcapa { display:flex; align-items:center; gap:7px; cursor:pointer; padding:3px 0; }
+  .tcapa .flecha { margin-left:auto; color:var(--suave); font-size:11px; transition:transform .15s; }
+  .capa:not(.on) .flecha { transform:rotate(-90deg); }
+  .capa:not(.on) > .desc { display:none; }
+  .desc { padding-left:22px; }
+  h2 .tcapa { padding:0; }
   .leaflet-popup-content { font-size:12.5px; line-height:1.4; }
   .leaflet-popup-content b { font-size:13px; }
   /* resalte temporal de una línea (clic en el mapa o en la tabla) */
@@ -54,29 +64,45 @@
     <p class="sub">Paraguay · Red vial INE 2022 · Tramos dibujados por el equipo</p>
 
     <h2>Leyenda</h2>
-    <div class="ley"><span class="lin" style="border-color:var(--intervenido)"></span> Intervenido (obra terminada)</div>
-    <div class="ley"><span class="lin" style="border-color:var(--ejecucion)"></span> En ejecución</div>
-    <div class="ley"><span class="lin" style="border-color:var(--aprobado)"></span> Aprobado, todavía sin obra</div>
-    <div class="ley"><span class="lin" style="border-color:#555;border-top-style:dashed"></span> Trazado dudoso (km muy distintos del oficial)</div>
-    <div class="ley"><span class="lin fondo"></span> Caminos rurales de tierra (INE 2022, sin intervención registrada)</div>
-    <div class="ley"><img id="icoPeaje" width="22" height="22" alt=""> Puesto de peaje (INE, 19 puestos)</div>
+    <label class="ley"><input type="checkbox" class="chk" data-capa="tramos"> <b>Tramos</b></label>
+    <div class="ley" style="padding-left:22px"><span class="lin" style="border-color:var(--intervenido)"></span> Intervenido (obra terminada)</div>
+    <div class="ley" style="padding-left:22px"><span class="lin" style="border-color:var(--ejecucion)"></span> En ejecución</div>
+    <div class="ley" style="padding-left:22px"><span class="lin" style="border-color:var(--aprobado)"></span> Aprobado, todavía sin obra</div>
+    <div class="ley" style="padding-left:22px"><span class="lin" style="border-color:#555;border-top-style:dashed"></span> Trazado dudoso (km muy distintos del oficial)</div>
+    <label class="ley"><input type="checkbox" class="chk" data-capa="tierra"><span class="lin fondo"></span> Caminos rurales de tierra (INE 2022, sin intervención registrada)</label>
+    <label class="ley"><input type="checkbox" class="chk" data-capa="peajes"><img id="icoPeaje" width="22" height="22" alt=""> Puesto de peaje (INE, 19 puestos)</label>
+    <label class="ley"><input type="checkbox" class="chk" data-capa="dptos"><span class="lin" style="border-top:1px dashed #52606d"></span> Límites departamentales</label>
 
     <h2>Capas opcionales</h2>
-    <p class="sub">Se activan con el botón de capas, arriba a la derecha del mapa.</p>
-    <p><b>Iluminación nocturna</b> (INE, satélite): sirve como aproximación de actividad económica y de acceso a servicios a lo largo de los caminos.</p>
+    <p class="sub">Se prenden con la casilla de cada título (o con el botón de capas, arriba a la derecha del mapa). La descripción se abre al prenderla.</p>
+    <div class="capa" data-capa="ilum">
+    <label class="tcapa"><input type="checkbox" class="chk" data-capa="ilum"><b>Iluminación nocturna</b> <span class="sub">INE, satélite</span><span class="flecha">▾</span></label>
+    <div class="desc">
+    <p>Sirve como aproximación de actividad económica y de acceso a servicios a lo largo de los caminos.</p>
     <img class="leyimg" alt="Leyenda de iluminación nocturna" src="https://geonode.ine.gov.py/geoserver/wms?service=WMS&request=GetLegendGraphic&format=image/png&WIDTH=16&HEIGHT=12&LAYER=geonode:iluminacion2&version=1.1.1&legend_options=fontAntiAliasing:true;fontSize:11">
-    <p><b>Nivel socioeconómico</b> por barrio o localidad (INE, Censo 2022): permite ver quiénes viven junto a cada tramo.</p>
+    </div></div>
+    <div class="capa" data-capa="nse">
+    <label class="tcapa"><input type="checkbox" class="chk" data-capa="nse"><b>Nivel socioeconómico</b> <span class="sub">INE, Censo 2022</span><span class="flecha">▾</span></label>
+    <div class="desc">
+    <p>Por barrio o localidad: permite ver quiénes viven junto a cada tramo.</p>
     <img class="leyimg" alt="Leyenda de nivel socioeconómico" src="https://geonode.ine.gov.py/geoserver/wms?service=WMS&request=GetLegendGraphic&format=image/png&WIDTH=16&HEIGHT=12&LAYER=geonode:_guaira___rural&version=1.1.1&legend_options=fontAntiAliasing:true;fontSize:11">
-
-    <p><b>Zonas inundables</b> (Copernicus GloFAS, JRC): áreas que cubriría una crecida de ríos con período de retorno de 100 años, es decir, con 1 % de probabilidad por año, según un modelo hidrológico global de ~90 m. No incluye anegamientos por lluvia local ni el cauce permanente de los ríos. Sirve para ver qué tramos pueden quedar cortados en una crecida grande.</p>
+    </div></div>
+    <div class="capa" data-capa="inund">
+    <label class="tcapa"><input type="checkbox" class="chk" data-capa="inund"><b>Zonas inundables</b> <span class="sub">Copernicus GloFAS, JRC</span><span class="flecha">▾</span></label>
+    <div class="desc">
+    <p>Áreas que cubriría una crecida de ríos con período de retorno de 100 años, es decir, con 1 % de probabilidad por año, según un modelo hidrológico global de ~90 m. No incluye anegamientos por lluvia local ni el cauce permanente de los ríos. Sirve para ver qué tramos pueden quedar cortados en una crecida grande.</p>
     <div class="ley"><span class="cuad" style="background:#9ecae1"></span> menos de 1 m de agua</div>
     <div class="ley"><span class="cuad" style="background:#4292c6"></span> 1 a 3 m</div>
     <div class="ley"><span class="cuad" style="background:#08519c"></span> 3 a 10 m</div>
     <div class="ley"><span class="cuad" style="background:#08306b"></span> más de 10 m</div>
+    </div></div>
 
-    <h2>Rutas nacionales</h2>
+    <div class="capa" data-capa="vias">
+    <h2><label class="tcapa"><input type="checkbox" class="chk" data-capa="vias">Rutas nacionales<span class="flecha">▾</span></label></h2>
+    <div class="desc" style="padding-left:0">
     <p class="sub">Capa «Vías principales». Colores según la nueva nominación de rutas nacionales del MOPC (Resolución 1090/2019, infografía de ABC Color); inicio, fin y longitud según el Mapa Vial MOPC, corte de inventario dic-2025 (v2, mar-2026), que no cambia los km de 2019. El trazado sigue ese mapa sobre la red vial del INE 2022. Las rutas departamentales van en gris. Clic en una fila para ver la ruta.</p>
     <table id="tabla-rutas"><thead><tr><th>N°</th><th>Inicio</th><th>Fin</th><th class="num">km</th></tr></thead><tbody></tbody></table>
+    </div></div>
 
     <h2>Tramos dibujados</h2>
     <table id="tabla"><thead><tr><th>Tramo</th><th class="num">km oficial</th><th class="num">km mapa</th></tr></thead><tbody></tbody></table>
@@ -325,6 +351,22 @@ if (pedidas.includes("vias")) principales.addTo(mapa);
 if (pedidas.includes("ilum")) iluminacion.addTo(mapa);
 if (pedidas.includes("nse")) nse.addTo(mapa);
 if (pedidas.includes("inund")) inundables.addTo(mapa);
+
+// casillas de la barra lateral: prenden y apagan cada capa, y se mantienen al día con el botón de capas
+const CAPAS_PANEL = { tramos, tierra, peajes, dptos, vias: principales, ilum: iluminacion, nse, inund: inundables };
+function marcar(clave) {
+  const on = mapa.hasLayer(CAPAS_PANEL[clave]);
+  document.querySelectorAll(`input.chk[data-capa="${clave}"]`).forEach(c => c.checked = on);
+  document.querySelectorAll(`.capa[data-capa="${clave}"]`).forEach(d => d.classList.toggle("on", on));
+}
+Object.entries(CAPAS_PANEL).forEach(([clave, capa]) => {
+  capa.on("add remove", () => setTimeout(() => marcar(clave)));
+  marcar(clave);
+});
+document.querySelectorAll("input.chk").forEach(c => c.addEventListener("change", () => {
+  const capa = CAPAS_PANEL[c.dataset.capa];
+  if (c.checked) capa.addTo(mapa); else mapa.removeLayer(capa);
+}));
 
 const tb = document.querySelector("#tabla tbody");
 const orden = { intervenido: 0, en_ejecucion: 1, aprobado: 2 };
