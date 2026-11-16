@@ -95,6 +95,13 @@ Resultados:
 - Ya no quedan tramos sin ubicar.
 - **Choré – Kokuere – San Pablo:** 37,7 km según el MOPC; el trazado da 37,2 km y coincide.
 - **Caazapá – Tajy – Colonia Cosme – Vizcaíno Kue:** se trazó con los puntos de Google Maps (25,1 km; el trazado da 26,5 km). En el Mapa Vial MOPC 2026 de Caazapá figura como camino vecinal. La ley 7527/2025 lo extiende hasta Fulgencio Yegros, pero ese tramo no se dibuja porque la red del INE no tiene un camino directo.
+- **Paraguarí y Ñeembucú (nov-2026):** hasta entonces el mapa no tenía tramos en estos dos departamentos. Las fuentes son la Ley 7527/2025 de expropiaciones del MOPC, la Cartera de Proyectos del MOPC y notas del MOPC, ABC Color y Agencia IP. Ni la Ley 7704/2026 (BID) ni la 7586/2025 (CAF) tienen caminos en Paraguarí o Ñeembucú. Se agregaron 10 tramos:
+  - **En ejecución:** Quyquyhó – María Antonia (LPN 123/2024 lote 3, Consorcio Santa Lucía, G. 88.160 millones, 31,5 km; 29,0 km en el mapa).
+  - **Aprobados por la Ley 7527/2025:** María Antonia – Ñandu Rugua – Mbuyapey; Acahay – Isla Báez – Ybyraity – Islería (11,52 km; 12,0 km en el mapa, pasa por Yvyraity); Ybytymí – La Colmena; Isla Umbú – Desmochados.
+  - **Mantenimiento del MOPC:** Cerro Guy – Cerro Frente, Chircal – Guasu Kua y Potrero Jara – Paso Pe (Distrito N° 9, nov-2025); Mayor Martínez – Isla Umbú e Isla Sola – Cruce Cerrito – Laureles (Distrito N° 12, sep-2026). Son perfilado, limpieza de cunetas y ripio en puntos críticos, no pavimentación. Van como «intervenidos» con esa aclaración en la nota.
+  - **Sin ubicar:** Mbuyapey – Río Tebicuary – Maciel (36 km; en la red del INE el camino no cruza el Tebicuary) y Quiindy – Ybycuí – Quyquyhó – Empalme Col. Goiburú (los largos de la Cartera no coinciden con ningún camino claro).
+  - Isla Umbú – Desmochados, Isla Sola – Laureles y Cerro Guy – Cerro Frente quedan como trazado dudoso: los km de las notas del MOPC (18, 21 y 12 km) no coinciden con lo que mide el camino entre las localidades en la red del INE (28,7, 34,9 y 4,7 km).
+  - Los caminos que ABC reportó intransitables en Ybycuí y Mbuyapey (oct-2026) no tienen proyecto publicado.
 
 ## Regenerar
 
