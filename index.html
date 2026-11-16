@@ -40,6 +40,18 @@
   .capa:not(.on) > .desc { display:none; }
   .desc { padding-left:22px; }
   h2 .tcapa { padding:0; }
+  /* buscador de tramos */
+  #buscador { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0 4px; }
+  #buscador input, #buscador select { font:inherit; font-size:12.5px; padding:5px 7px; border:1px solid var(--borde); border-radius:5px; background:#fff; color:var(--texto); }
+  #q { flex:1 1 100%; }
+  #fdpto { flex:1 1 auto; min-width:0; }
+  #cuenta { font-size:12px; color:var(--suave); align-self:center; }
+  #cuenta a { color:#334e68; }
+  /* barra lateral colapsable */
+  #app.sin-panel #panel { display:none; }
+  .btn-panel { background:#fff; border:2px solid rgba(0,0,0,.2); border-radius:4px; background-clip:padding-box; width:34px; height:34px;
+               font-size:16px; line-height:1; cursor:pointer; color:#333; padding:0; }
+  .btn-panel:hover { background:#f4f4f4; }
   .leaflet-popup-content { font-size:12.5px; line-height:1.4; }
   .leaflet-popup-content b { font-size:13px; }
   /* resalte temporal de una línea (clic en el mapa o en la tabla) */
@@ -62,6 +74,11 @@
   <aside id="panel">
     <h1>Caminos vecinales: tramos intervenidos y aprobados</h1>
     <p class="sub">Paraguay · Red vial INE 2022 · Tramos dibujados por el equipo</p>
+    <div id="buscador" role="search">
+      <input type="search" id="q" placeholder="Buscar tramo, localidad o programa…" aria-label="Buscar tramo">
+      <select id="fdpto" aria-label="Filtrar por departamento"><option value="">Todos los departamentos</option></select>
+      <span id="cuenta"></span>
+    </div>
 
     <h2>Leyenda</h2>
     <label class="ley"><input type="checkbox" class="chk" data-capa="tramos"> <b>Tramos</b></label>
@@ -104,7 +121,7 @@
     <table id="tabla-rutas"><thead><tr><th>N°</th><th>Inicio</th><th>Fin</th><th class="num">km</th></tr></thead><tbody></tbody></table>
     </div></div>
 
-    <h2>Tramos dibujados</h2>
+    <h2 id="tit-tramos">Tramos dibujados</h2>
     <table id="tabla"><thead><tr><th>Tramo</th><th class="num">km oficial</th><th class="num">km mapa</th></tr></thead><tbody></tbody></table>
 
     <h2 id="tit-sinubicar">Tramos sin ubicar todavía</h2>
@@ -384,6 +401,64 @@ TRAMOS.features.slice().sort((a, b) => orden[a.properties.estado] - orden[b.prop
     };
     tb.appendChild(tr);
   });
+// buscador: filtra la tabla y los tramos del mapa por texto y por departamento
+const norm = t => (t || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const dptosDe = d => (d || "").split("/").map(x => x.trim()).filter(Boolean);
+const filas = [...tb.querySelectorAll("tr")];
+const datosFila = TRAMOS.features.slice().sort((a, b) => orden[a.properties.estado] - orden[b.properties.estado]).map(f => f.properties);
+const selDpto = document.getElementById("fdpto"), inQ = document.getElementById("q"), cuenta = document.getElementById("cuenta");
+[...new Set(TRAMOS.features.flatMap(f => dptosDe(f.properties.dpto)).concat(SIN_UBICAR.flatMap(s => dptosDe(s.dpto))))]
+  .sort((a, b) => a.localeCompare(b, "es")).forEach(d => selDpto.add(new Option(d.charAt(0) + d.slice(1).toLowerCase().replace(/ (\S)/g, (m, c) => " " + c.toUpperCase()), d)));
+function coincide(p, q, d) {
+  return (!d || dptosDe(p.dpto).includes(d)) && (!q || norm([p.nombre, p.dpto, p.programa, p.motivo].join(" ")).includes(q));
+}
+function filtrar(acercar) {
+  const q = norm(inQ.value.trim()), d = selDpto.value;
+  let n = 0;
+  const vistos = [];
+  datosFila.forEach((p, i) => {
+    const ok = coincide(p, q, d);
+    filas[i].hidden = !ok;
+    const l = capas[p.nombre];
+    if (ok) { n++; vistos.push(l); if (!tramos.hasLayer(l)) tramos.addLayer(l); }
+    else if (tramos.hasLayer(l)) tramos.removeLayer(l);
+  });
+  [...document.querySelectorAll("#sinubicar tbody tr")].forEach((tr, i) => tr.hidden = !coincide(SIN_UBICAR[i], q, d));
+  const filtrando = q || d;
+  cuenta.innerHTML = filtrando ? `${n} de ${datosFila.length} tramos · <a href="#tit-tramos">ver lista</a>` : "";
+  if (filtrando && acercar && vistos.length) mapa.fitBounds(L.featureGroup(vistos).getBounds(), { padding: [40, 40], maxZoom: 12 });
+}
+let espera;
+inQ.addEventListener("input", () => { clearTimeout(espera); espera = setTimeout(() => filtrar(true), 250); });
+selDpto.addEventListener("change", () => filtrar(true));
+document.querySelector("#cuenta").addEventListener("click", e => {
+  if (e.target.tagName === "A") { e.preventDefault(); document.getElementById("tit-tramos").scrollIntoView({ behavior: "smooth" }); }
+});
+
+// botón para colapsar la barra lateral
+const BotonPanel = L.Control.extend({
+  options: { position: "topleft" },
+  onAdd() {
+    const b = L.DomUtil.create("button", "btn-panel");
+    b.type = "button";
+    const pintar = () => {
+      const oculto = document.getElementById("app").classList.contains("sin-panel");
+      b.textContent = oculto ? "☰" : "«";
+      b.title = oculto ? "Mostrar la barra lateral" : "Ocultar la barra lateral";
+      b.setAttribute("aria-label", b.title);
+    };
+    pintar();
+    L.DomEvent.disableClickPropagation(b);
+    L.DomEvent.on(b, "click", () => {
+      document.getElementById("app").classList.toggle("sin-panel");
+      pintar();
+      mapa.invalidateSize();
+    });
+    return b;
+  }
+});
+new BotonPanel().addTo(mapa);
+
 const su = document.querySelector("#sinubicar tbody");
 if (!SIN_UBICAR.length) { document.getElementById("tit-sinubicar").hidden = true; document.getElementById("sinubicar").hidden = true; }
 SIN_UBICAR.forEach(s => {
