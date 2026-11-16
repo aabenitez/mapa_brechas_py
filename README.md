@@ -118,6 +118,14 @@ Resultados:
   - **Sin ubicar:** Ruta PY02 (km 96) – Colonia Yhaca (Ley 7527/2025), porque no se encontró la colonia.
   - Los trabajos de mantenimiento del MOPC en Cordillera de 2026 (24,6 km en seis distritos, entre otros) no se dibujan: las notas no dicen dónde empieza ni termina cada camino.
 
+- **Amambay (nov-2026):** fuentes: el mapa MOPC de obras en ejecución de Amambay (mar-2026), la Ley 7527/2025 y la Cartera de Proyectos del MOPC. Las grandes obras del departamento son de rutas nacionales y no se dibujan como tramos: la PY17 Ruta de la Soberanía en tres lotes y la PY05, con BID. Se agregaron 3 tramos:
+  - **En ejecución:** Karapa'i – Cruce Panaderos, construcción de puentes de hormigón armado (PR-L1092, BID, Sotec). En la red del INE el camino está cortado unos 4,8 km donde van los puentes; ese pedazo se dibuja recto.
+  - **Aprobados (Ley 7527/2025 y Cartera MOPC):** Ruta PY05 – 1° de Mayo – Vista Alegre (12,34 km; da 11,6 km) y Ruta PY05 – Fortuna Guazú (17,13 km; da 21,3 km).
+  - **Sin ubicar:**
+    - Pedro Juan Caballero – Bella Vista Norte (100 km): en la red del INE los caminos D082 y D084 están cortados.
+    - Bella Vista Norte – Puentesiño (58 km): Puentesiño no figura en el INE, y el mapa MOPC ya muestra pavimentada la D001.
+  - Las notas de mantenimiento del MOPC en Amambay (2025-2026, 40 km y otras) no dicen dónde empieza ni termina cada camino.
+
 ## Regenerar
 
 ```
