@@ -81,7 +81,7 @@
     </div>
 
     <h2>Leyenda</h2>
-    <label class="ley"><input type="checkbox" class="chk" data-capa="tramos"> <b>Tramos</b></label>
+    <label class="ley"><input type="checkbox" class="chk" data-capa="tramos"> <b>Tramos</b> (Elaboración propia)</label>
     <div class="ley" style="padding-left:22px"><span class="lin" style="border-color:var(--intervenido)"></span> Intervenido (obra terminada)</div>
     <div class="ley" style="padding-left:22px"><span class="lin" style="border-color:var(--ejecucion)"></span> En ejecución</div>
     <div class="ley" style="padding-left:22px"><span class="lin" style="border-color:var(--aprobado)"></span> Aprobado, todavía sin obra</div>
@@ -353,7 +353,7 @@ principales.on("add", () => tramos.bringToFront());
 
 L.control.layers(
   { "Mapa": osm, "Satélite": sat },
-  { "Tramos": tramos, "Puestos de peaje (INE)": peajes, "Caminos rurales de tierra (INE)": tierra,
+  { "Tramos (Elaboración propia)": tramos, "Puestos de peaje (INE)": peajes, "Caminos rurales de tierra (INE)": tierra,
     "Departamentos": dptos, "Vías principales (INE)": principales,
     "Iluminación nocturna (INE)": iluminacion, "Nivel socioeconómico (INE, Censo 2022)": nse,
     "Zonas inundables, crecida de 100 años (Copernicus)": inundables },
