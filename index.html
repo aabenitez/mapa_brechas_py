@@ -425,14 +425,19 @@ function filtrar(acercar) {
   });
   [...document.querySelectorAll("#sinubicar tbody tr")].forEach((tr, i) => tr.hidden = !coincide(SIN_UBICAR[i], q, d));
   const filtrando = q || d;
-  cuenta.innerHTML = filtrando ? `${n} de ${datosFila.length} tramos · <a href="#tit-tramos">ver lista</a>` : "";
+  cuenta.innerHTML = filtrando ? `${n} de ${datosFila.length} tramos · <a href="#tit-tramos" data-acc="lista">ver lista</a> · <a href="#" data-acc="limpiar">limpiar</a>` : "";
   if (filtrando && acercar && vistos.length) mapa.fitBounds(L.featureGroup(vistos).getBounds(), { padding: [40, 40], maxZoom: 12 });
 }
 let espera;
 inQ.addEventListener("input", () => { clearTimeout(espera); espera = setTimeout(() => filtrar(true), 250); });
 selDpto.addEventListener("change", () => filtrar(true));
 document.querySelector("#cuenta").addEventListener("click", e => {
-  if (e.target.tagName === "A") { e.preventDefault(); document.getElementById("tit-tramos").scrollIntoView({ behavior: "smooth" }); }
+  if (e.target.tagName !== "A") return;
+  e.preventDefault();
+  if (e.target.dataset.acc === "limpiar") {
+    inQ.value = ""; selDpto.value = ""; filtrar(false);
+    mapa.fitBounds(tramos.getBounds(), { padding: [30, 30] });
+  } else document.getElementById("tit-tramos").scrollIntoView({ behavior: "smooth" });
 });
 
 // botón para colapsar la barra lateral
